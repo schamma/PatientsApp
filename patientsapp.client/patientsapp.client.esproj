@@ -7,4 +7,9 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\patientsapp.client\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\errors\" />
+    <Folder Include="src\app\_guards\" />
+    <Folder Include="src\assets\" />
+  </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
 
 interface WeatherForecast {
   date: string;
@@ -15,24 +17,16 @@ interface WeatherForecast {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
-
-  constructor(private http: HttpClient) {}
+  title = 'PatientsApp.client';
+  users: any;
+  constructor(private accountService: AccountService) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.setCurrentUser();
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user')!); 
+    this.accountService.setCurrentUser(user);
   }
-
-  title = 'patientsapp.client';
 }

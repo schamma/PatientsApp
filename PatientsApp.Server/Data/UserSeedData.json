@@ -1,0 +1,132 @@
+﻿[
+  {
+    "UserName": "Lisa",
+    "Gender": "female",
+    "DateOfBirth": "1976-07-22",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/55.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Karen",
+    "Gender": "female",
+    "DateOfBirth": "1992-10-12",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/52.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Marge",
+    "Gender": "female",
+    "DateOfBirth": "1989-01-24",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/24.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Lois",
+    "Gender": "female",
+    "DateOfBirth": "1968-06-22",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/15.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Ruth",
+    "Gender": "female",
+    "DateOfBirth": "1946-01-12",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/women/74.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Todd",
+    "Gender": "male",
+    "DateOfBirth": "1955-02-07",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/91.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "John",
+    "Gender": "male",
+    "DateOfBirth": "1969-04-09",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/88.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Bob",
+    "Gender": "male",
+    "DateOfBirth": "1991-03-23",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/58.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Steve",
+    "Gender": "male",
+    "DateOfBirth": "1972-12-01",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/21.jpg",
+        "IsMain": true
+      }
+    ]
+  },
+  {
+    "UserName": "Davis",
+    "Gender": "male",
+    "DateOfBirth": "1988-03-20",
+    "Created": "2025-01-24",
+    "LastActive": "2025-01-28",
+    "Photos": [
+      {
+        "Url": "https://randomuser.me/api/portraits/men/13.jpg",
+        "IsMain": true
+      }
+    ]
+  }
+]
