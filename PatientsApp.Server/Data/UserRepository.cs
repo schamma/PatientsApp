@@ -46,14 +46,18 @@ namespace PatientsApp.Server.Data
         public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
             return await _context.Users
-                .Include(p => p.Photos)
+                .Include(p => p.FollowUps)
+                .Include(p => p.Screenings)
+                .Include(p => p.AllergyChecks)
                 .SingleOrDefaultAsync(x => x.UserName == username);
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()
         {
             return await _context.Users
-                .Include(p => p.Photos)
+                .Include(p => p.FollowUps)
+                .Include(p => p.Screenings)
+                .Include(p => p.AllergyChecks)
                 .ToListAsync();
         }
 

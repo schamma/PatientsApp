@@ -10,6 +10,7 @@ import { Member } from '../../_models/member';
 })
 export class MemberCardComponent implements OnInit{
   @Input() member: Member | undefined;
+  imageSrc = './assets/user.png'  
 
   constructor() { }
 

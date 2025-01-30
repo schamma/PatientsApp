@@ -10,10 +10,13 @@ namespace PatientsApp.Server.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<AppUser, MemberDto>()
-                .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url))
+                //.ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Reccomendations.FirstOrDefault(x => x.IsMain).Url))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
 
-            CreateMap<Photo, PhotoDto>();
+            //CreateMap<Reccomendations, ReccomendationsDto>();
+            CreateMap<Screenings, ScreeningsDto>();
+            CreateMap<AllergyChecks, AllergyCheckDto>();
+            CreateMap<FollowUps, FollowUpsDto>();
             CreateMap<MemberUpdateDto, AppUser>();
             //CreateMap<RegisterDto, AppUser>();
 

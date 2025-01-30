@@ -8,8 +8,11 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\patientsapp.client\browser\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="src\app\assets\**" />
+    <TypeScriptConfiguration Remove="src\app\assets\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="src\app\errors\" />
     <Folder Include="src\app\_guards\" />
-    <Folder Include="src\assets\" />
   </ItemGroup>
 </Project>
