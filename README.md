@@ -24,8 +24,6 @@ Install dependencies and database
 navigate to the Patientsapp.Server project and enter the following in the terminal:
     
     dotnet restore
-    
-    dotnet ef database update
 
 Run the project:
     
