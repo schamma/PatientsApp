@@ -21,7 +21,7 @@ builder.Services.AddAutoMapper(typeof(IUserRepository));
 builder.Services.AddDbContext<DataContext>(options =>
 {
     //options.UseSqlite(IConfiguration.Equals("DefaultConnection"));
-    options.UseSqlite("Data source=PatientsApp.db");
+    options.UseSqlite("Data source=PatientsApp.db"); //sqlite connection
 });
 
 builder.Services.AddCors();
