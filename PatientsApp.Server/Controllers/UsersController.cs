@@ -6,6 +6,7 @@ using PatientsApp.Server.Data;
 using PatientsApp.Server.DTOs;
 using PatientsApp.Server.Entities;
 using PatientsApp.Server.Extensions;
+using PatientsApp.Server.Helpers;
 using PatientsApp.Server.Interfaces;
 using System.Security.Claims;
 
@@ -24,34 +25,25 @@ namespace PatientsApp.Server.Controllers
         }
 
         [HttpGet]
-        public async Task <ActionResult<IEnumerable<MemberDto>>> GetUsers()
+        public async Task <ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]PaginationParams userParams)
         {
-            var users = await _userRepository.GetMembersAsync();
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+            userParams.CurrentUsername = User.GetUsername();
+
+            var users = await _userRepository.GetMembersAsync(userParams);
+
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize,
+            users.TotalCount, users.TotalPages);
 
             return Ok(users);
         }
 
-        //PatientsApp/users/3
+        //PatientsApp/users/1
         [HttpGet("{username}")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
             return await _userRepository.GetMemberAsync(username);
         }
-
-        //[HttpPut]
-        //public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
-        //{
-
-        //    var user = await _unitOfWork.UserRepository.GetUserByUsernameAsync(User.GetUsername());
-
-        //    _mapper.Map(memberUpdateDto, user);
-
-        //    _unitOfWork.UserRepository.Update(user);
-
-        //    if (await _unitOfWork.Complete()) return NoContent();
-
-        //    return BadRequest("Failed to update user");
-        //}
 
         [HttpPut]
         public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)

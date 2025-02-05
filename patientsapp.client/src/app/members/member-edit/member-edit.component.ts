@@ -19,7 +19,6 @@ export class MemberEditComponent implements OnInit {
   member: Member;
   user: User;
 
-  // warns user if they make changes to their profile without saving them first and try to close the tab
   @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any) {
     if (this.editForm.dirty) {
       $event.returnValue = true;

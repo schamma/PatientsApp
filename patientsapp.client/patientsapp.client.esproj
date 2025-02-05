@@ -12,7 +12,9 @@
     <TypeScriptConfiguration Remove="src\app\assets\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\app\errors\" />
+    <Folder Include="src\app\errors\test-error\" />
+    <Folder Include="src\app\errors\server-error\" />
+    <Folder Include="src\app\errors\not-found\" />
     <Folder Include="src\app\_guards\" />
   </ItemGroup>
 </Project>

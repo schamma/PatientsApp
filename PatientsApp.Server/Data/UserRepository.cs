@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PatientsApp.Server.Entities;
 using PatientsApp.Server.Interfaces;
 using PatientsApp.Server.DTOs;
+using PatientsApp.Server.Helpers;
 
 namespace PatientsApp.Server.Data
 {
@@ -23,19 +24,25 @@ namespace PatientsApp.Server.Data
             return await _context.Users
                 .Where(x => x.UserName == username)
                 .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-                //.Select(x => new MemberDto
-                //{
-                //  Id = x.Id,
-                //  Username = x.UserName,
-                //})
                 .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<MemberDto>> GetMembersAsync()
+        public async Task<PagedList<MemberDto>> GetMembersAsync(PaginationParams userParams)
         {
-            return await _context.Users
-               .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
-               .ToListAsync();
+            var query = _context.Users.AsQueryable();
+
+            query = query.Where(u => u.UserName != userParams.CurrentUsername);
+            query = query.Where(u => u.Gender == userParams.Gender);
+
+            var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
+            var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
+
+            query = query.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);
+            query = query.OrderByDescending(u => u.UserName);
+          
+            return await PagedList<MemberDto>.CreateAsync(query.ProjectTo<MemberDto>(_mapper
+                .ConfigurationProvider).AsNoTracking(),
+                    userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)
@@ -63,7 +70,6 @@ namespace PatientsApp.Server.Data
 
         public async Task<bool> SaveAllAsync()
         {
-            //throw new NotImplementedException();
             return await _context.SaveChangesAsync() > 0;
         }
 

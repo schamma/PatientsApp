@@ -1,6 +1,6 @@
 ﻿namespace PatientsApp.Server.DTOs
 {
-    public class AllergyCheckDto
+    public class AllergyChecksDto
     {
         public int Id { get; set; }
         public string AllergyType { get; set; }

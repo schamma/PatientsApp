@@ -11,11 +11,15 @@ namespace PatientsApp.Server.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<LogUserActivity>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAllergyChecksRepository, AllergyChecksRepository>();
+            services.AddScoped<IScreeningsRepository, ScreeningsRepository>();
+            services.AddScoped<IFollowUpsRepository, FollowUpsRepository>();
+            services.AddScoped<IAllergyChecksRepository, AllergyChecksRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
-              // Use connection string from file.
               var connStr = config.GetConnectionString("DefaultConnection");
 
               options.UseSqlite(connStr);

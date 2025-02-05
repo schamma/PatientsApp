@@ -1,6 +1,4 @@
-//import { Photo } from './reccomendations';
-//import { Reccomendations } from './reccomendations';
-import { AllergyCheck } from './allergyCheck';
+import { AllergyChecks } from './allergyChecks';
 import { FollowUps } from './followUps';
 import { Screenings } from './screenings';
 
@@ -9,15 +7,12 @@ export interface Member {
   username: string;
   firstName: string;
   lastName: string;
-  //photoUrl: string;
   age: number;
   created: Date;
   dateOfBirth: Date;
   lastActive: Date;
   gender: string;
-  //photos: Photo[];
-  //reccomendations: Reccomendations[];
-  allergyCheck: AllergyCheck[];
+  allergyChecks: AllergyChecks[];
   screenings: Screenings[];
   followUps: FollowUps[];
 }

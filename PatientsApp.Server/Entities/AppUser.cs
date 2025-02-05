@@ -17,10 +17,5 @@ namespace PatientsApp.Server.Entities
         public ICollection<AllergyChecks> AllergyChecks { get; set; }
         public ICollection<Screenings> Screenings { get; set; }
         public ICollection<FollowUps> FollowUps { get; set; }
-
-        //public int GetAge()
-        //{
-        //    return DateOfBirth.CalculateAge();
-        //}
     }
 }
